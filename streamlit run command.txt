@@ -1,0 +1,1 @@
+streamlit run "C:\Users\AADERSHI MOHAN\Desktop\DkstopFile\Aadershi\DATA  SCIENCE\Project\Projects\MultiDiseasePrediction"
