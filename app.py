@@ -18,15 +18,15 @@ from streamlit_option_menu import option_menu
 
 diabetes_model = pickle.load(open('diabetes_model.sav','rb'))
 heart_model = pickle.load(open('heart_model.sav', 'rb'))
-kidney_model = pickle.load(open('kidney_model.sav', 'rb'))
+# kidney_model = pickle.load(open('kidney_model.sav', 'rb'))
 
 # sidebar for navigate
 
 with st.sidebar:
     selected = option_menu('Multiple Disease Prediction System using ML',
     ['Diabetes Prediction',
-    'Heart Disease Prediciton',
-    'Kidney Disease Prediciton'],
+    'Heart Disease Prediciton'] ,
+#     'Kidney Disease Prediciton'],
                         icons=['activity' ,'heart','clipboard2-pulse'],
                         default_index=0)
 
@@ -122,74 +122,74 @@ if (selected=='Heart Disease Prediction'):
 
 
 
-# Kidney Disease
-if (selected=='Kidney Disease Prediction'):
-    st.title('Kidney Disease Prediciton using ML')
+# # Kidney Disease
+# if (selected=='Kidney Disease Prediction'):
+#     st.title('Kidney Disease Prediciton using ML')
 
- # getting the input data from the user
-    col1, col2, col3 = st.columns(3)
+#  # getting the input data from the user
+#     col1, col2, col3 = st.columns(3)
 
-    with col1:
-      Age = st.text_input('Number of Pregnancies')
-    with col2:
-      BloodPressure = st.text_input('Blood Pressure value')
-    with col3:
-      Sg = st.text_input('Specific gravity ')
-    with col1:
-      Al = st.text_input('Albumin')
-    with col2:
-      Su = st.text_input('Sugar')
-    with col3:
-      Pc = st.text_input('Pus cells')
-    with col1:
-      Pcc = st.text_input('Pus cell clumps')
-    with col2:
-      Ba = st.text_input('Bacteria')
-    with col3:
-      Bgr = st.text_input('Blood Glucose Random ')
-    with col1:
-      Bu = st.text_input('Blood urea')
-    with col2:
-      Sc = st.text_input('Serum creatinine')
-    with col3:
-      Sod = st.text_input('Sodium')
-    with col1:
-      Pot = st.text_input('Potassium')
-    with col2:
-      Hemo = st.text_input('Insulin level')
-    with col3:
-      Pcv = st.text_input('Packed cells volume')
-    with col1:
-      Htn = st.text_input('Hypertension')
-    with col2:
-      Dm = st.text_input('Diabetes mellitus')
-    with col3:
-      Cad = st.text_input('Coronary Artery Disease')
-    with col1:
-      Appet = st.text_input('Appetite')
-    with col2:
-      Pe = st.text_input('Pedal Edema')
-    with col3:
-      Ane = st.text_input('Anemia')
-
-
-    # code for Prediction
-    kidney_dignosis = ''
-
-    # creating a button for prediction
-    if st.button('Chronic Kidney Test Result'):
-      kidney_prediciton = kidney_model.predict([[age, bp ,sg ,al ,su ,pc ,pcc ,ba ,bgr ,bu ,sc ,sod ,pot ,hemo ,pcv ,htn ,dm ,cad ,appet ,pe ,ane]])
-
-      if (kidney_prediction[0]==1):
-        kidney_diagnosis = 'The person has Chronic Kidney Disease.'
-      else:
-        kidney_diagnosis = 'The person does not have Chronic Kidney Disease.'
-    st.success(kidney_diagnosis)
+#     with col1:
+#       Age = st.text_input('Number of Pregnancies')
+#     with col2:
+#       BloodPressure = st.text_input('Blood Pressure value')
+#     with col3:
+#       Sg = st.text_input('Specific gravity ')
+#     with col1:
+#       Al = st.text_input('Albumin')
+#     with col2:
+#       Su = st.text_input('Sugar')
+#     with col3:
+#       Pc = st.text_input('Pus cells')
+#     with col1:
+#       Pcc = st.text_input('Pus cell clumps')
+#     with col2:
+#       Ba = st.text_input('Bacteria')
+#     with col3:
+#       Bgr = st.text_input('Blood Glucose Random ')
+#     with col1:
+#       Bu = st.text_input('Blood urea')
+#     with col2:
+#       Sc = st.text_input('Serum creatinine')
+#     with col3:
+#       Sod = st.text_input('Sodium')
+#     with col1:
+#       Pot = st.text_input('Potassium')
+#     with col2:
+#       Hemo = st.text_input('Insulin level')
+#     with col3:
+#       Pcv = st.text_input('Packed cells volume')
+#     with col1:
+#       Htn = st.text_input('Hypertension')
+#     with col2:
+#       Dm = st.text_input('Diabetes mellitus')
+#     with col3:
+#       Cad = st.text_input('Coronary Artery Disease')
+#     with col1:
+#       Appet = st.text_input('Appetite')
+#     with col2:
+#       Pe = st.text_input('Pedal Edema')
+#     with col3:
+#       Ane = st.text_input('Anemia')
 
 
+#     # code for Prediction
+#     kidney_dignosis = ''
 
-# !streamlit run /content/MultipleDiseasePrediction.py &> /content/streamlit run command.txt
+#     # creating a button for prediction
+#     if st.button('Chronic Kidney Test Result'):
+#       kidney_prediciton = kidney_model.predict([[age, bp ,sg ,al ,su ,pc ,pcc ,ba ,bgr ,bu ,sc ,sod ,pot ,hemo ,pcv ,htn ,dm ,cad ,appet ,pe ,ane]])
 
-# # Run the Streamlit app
-# !streamlit run /content/MultipleDiseasePrediction.py & npx localtunnel --port 8501
+#       if (kidney_prediction[0]==1):
+#         kidney_diagnosis = 'The person has Chronic Kidney Disease.'
+#       else:
+#         kidney_diagnosis = 'The person does not have Chronic Kidney Disease.'
+#     st.success(kidney_diagnosis)
+
+
+
+# # !streamlit run /content/MultipleDiseasePrediction.py &> /content/streamlit run command.txt
+
+# # # Run the Streamlit app
+# # !streamlit run /content/MultipleDiseasePrediction.py & npx localtunnel --port 8501
 
